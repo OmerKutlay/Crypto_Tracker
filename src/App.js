@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import Exchanges from "./pages/Exchanges";
 import Sidebar from "./components/Sidebar";
+import "./Style/styles.scss";
 
 function App() {
   return (
