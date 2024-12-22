@@ -14,10 +14,13 @@ const selectedCurrencyContext = createContext({});
 
 export const SelectedCurrencyProvider = (props) => {
     const [history, setHistory] = useState([]);
-    const [selectedInterval, setInterval] = useSate(DEFAULT_INTERVAL);
+    const [selectedInterval, setInterval] = useState(DEFAULT_INTERVAL);
     const [id, setId] = useState(null);
 
-    const getCurrencyHistory = async (id, interval = selectedInterval) => {
+    const getCurrencyHistory = async (
+        id, 
+        interval = selectedInterval
+    ) => {
         const interval_ = interval === DEFAULT_INTERVAL ? "h2" : "d1";
         const start = new Date();
         start.setDate(start.getDate() - INTERVALS[interval]);
