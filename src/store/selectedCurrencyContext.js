@@ -2,7 +2,7 @@ import { useState, createContext } from "react";
 import API from "../API";
 
 const DEFAULT_INTERVAL = "1D";
-const INTERVALS = {
+export const INTERVALS = {
     "1D": 1,
     "1W": 7,
     "1M": 30,
@@ -33,7 +33,7 @@ export const SelectedCurrencyProvider = (props) => {
 
     const values = {
         history: history,
-        setHistory: getCurrencyHistory,
+        getHistory: getCurrencyHistory,
         selected_id: id,
         interval: selectedInterval,
     };
