@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://api.coincap.io/v2";
+const BASE_URL = "https://api.coincap.io/v2/assets";
 
 class API {
     static get = (path) => {

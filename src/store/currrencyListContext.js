@@ -17,7 +17,7 @@ export const CurrencyListProvider = (props) => {
 
     }
 
-    const getExhanges = () => {
+    const getExchanges = () => {
         API.get("/exchanges").then(res => {
             setExhanges(res.data.data);
         }).catch(error => {
@@ -31,7 +31,7 @@ export const CurrencyListProvider = (props) => {
         currencyList: currencyList,
         exchanges: exchanges,
         getCurrencyList: getCurrencyList,
-        getExhanges: getExhanges
+        getExchanges: getExchanges
     }
 
     return (
