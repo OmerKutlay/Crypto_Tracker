@@ -30,8 +30,8 @@ export const CurrencyListProvider = (props) => {
     const values = {
         currencyList: currencyList,
         exchanges: exchanges,
-        setCurrencyList: getCurrencyList,
-        setExhanges: getExhanges
+        getCurrencyList: getCurrencyList,
+        getExhanges: getExhanges
     }
 
     return (
