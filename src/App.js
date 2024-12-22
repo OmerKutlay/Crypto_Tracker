@@ -12,12 +12,10 @@ function App() {
   const currencyListCTX = useContext(currencyListContext);
 
   useEffect(() => {
-    currencyListCTX.getExchangesetCurrencyList();
+    currencyListCTX.getCurrencyList();
     currencyListCTX.getExchanges();
-    selecetedCurrencyCTX.getHistory("bitcoin");
+    selectedCurrencyCTX.getHistory("bitcoin");
   }, []);
-
-
 
 
   return (
