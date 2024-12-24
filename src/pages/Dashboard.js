@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import selectedCurrencyContext, { INTERVALS } from "../store/selectedCurrencyContext";
 import currencyListContext from "../store/currrencyListContext";
+import LineChart from "../components/LineChart";
 
 const OPTION_HOUR_MINUT = {
   hour: "2-digit",
@@ -19,10 +20,10 @@ const OPTION_MONTH_YEAR = {
 };
 
 const Dashboard = () => {
-  const ctx = useContext(selectedCurrencyContext); // Context'i alıyoruz
-  const currencies = useContext(currencyListContext).currencyList; // Diğer context
-  const [searchPhrase, setSearch] = useState(""); // Arama için state
-  const [suggestions, setSuggestions] = useState([]); // Öneriler için state
+  const ctx = useContext(selectedCurrencyContext);
+  const currencies = useContext(currencyListContext).currencyList;
+  const [searchPhrase, setSearch] = useState("");
+  const [suggestions, setSuggestions] = useState([]);
 
   const onSearchChange = (event) => {
     const value = event.target.value;
@@ -42,9 +43,19 @@ const Dashboard = () => {
   };
 
   const selectedSearchedCurrency = (currencyId) => {
-    ctx.getHistory(currencyId); // Seçilen para birimini almak için context'teki fonksiyonu çağırıyoruz
+    ctx.getHistory(currencyId);
     setSearch("");
     setSuggestions([]);
+  };
+
+
+  const generateLabels = () => {
+    let options = ctx.interval === "1D" ? OPTION_HOUR_MINUT : OPTION_MONTH_DAY;
+    options = ["6M", "1Y"].includes(ctx.interval) ? OPTION_MONTH_YEAR : options;
+    return ctx.history.map((item) => {
+      const date = new Date(item.date);
+      return date.toDateString("en-US", options);
+    });
   };
 
   return (
@@ -75,9 +86,8 @@ const Dashboard = () => {
         <div className="intervals">
           {Object.keys(INTERVALS).map((interval) => (
             <button
-              className={`interval-btn ${
-                interval === ctx.interval ? "active" : ""
-              }`}
+              className={`interval-btn ${interval === ctx.interval ? "active" : ""
+                }`}
               onClick={() => {
                 ctx.getHistory(ctx.selected_id, interval);
               }}
@@ -87,6 +97,8 @@ const Dashboard = () => {
             </button>
           ))}
         </div>
+        <LineChart data={ctx.history.map((item) => item.priceUsd)} labels={generateLabels()}
+          selectedCurrency={currencies.find(currency => currency.id === ctx.selected_id)} />
       </section>
       <section></section>
     </main>

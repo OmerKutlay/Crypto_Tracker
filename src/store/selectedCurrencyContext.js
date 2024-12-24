@@ -25,7 +25,7 @@ export const SelectedCurrencyProvider = (props) => {
         const start = new Date();
         start.setDate(start.getDate() - INTERVALS[interval]);
         const end = new Date();
-        const url = '/assets/${id}/history?interval=${interval_}&start=${start.getTime()}&end=${end.getTime()}';
+        const url = `/assets/${id}/history?interval=${interval_}&start=${start.getTime()}&end=${end.getTime()}`;
         const response = await API.get(url);
         setHistory(response.data.data);
         setId(id);
