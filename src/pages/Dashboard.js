@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import selectedCurrencyContext, { INTERVALS } from "../store/selectedCurrencyContext";
 import currencyListContext from "../store/currrencyListContext";
 import LineChart from "../components/LineChart";
+import CurrencyTable from "../components/CurrencyTable";
 
 const OPTION_HOUR_MINUT = {
   hour: "2-digit",
@@ -100,7 +101,12 @@ const Dashboard = () => {
         <LineChart data={ctx.history.map((item) => item.priceUsd)} labels={generateLabels()}
           selectedCurrency={currencies.find(currency => currency.id === ctx.selected_id)} />
       </section>
-      <section></section>
+      <section>
+        <div className="title">
+          <h4>Top Assets</h4>
+        </div>
+        <CurrencyTable/>
+      </section>
     </main>
   );
 };
