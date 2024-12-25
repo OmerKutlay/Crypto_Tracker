@@ -55,7 +55,7 @@ const Dashboard = () => {
     options = ["6M", "1Y"].includes(ctx.interval) ? OPTION_MONTH_YEAR : options;
     return ctx.history.map((item) => {
       const date = new Date(item.date);
-      return date.toDateString("en-US", options);
+      return date.toLocaleString("en-US", options);
     });
   };
 
@@ -70,7 +70,7 @@ const Dashboard = () => {
             onChange={onSearchChange}
           />
           {suggestions.length > 0 && (
-            <ul>
+            <ul className="suggestion-box">
               {suggestions.map((currency) => (
                 <li
                   key={currency.id}
