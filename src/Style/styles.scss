@@ -1,20 +1,21 @@
 @import "_config";
 @import "_sidebar";
 @import "_CurrencyTable";
+@import "_Pagination";
 
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: "Montserrat", sans-serif;
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: "Montserrat", sans-serif;
 }
 
 html {
-    scroll-behavior: smooth;
+	scroll-behavior: smooth;
 }
 
 body {
-    background-color: darken($base-color, 10%);
+	background-color: darken($base-color, 10%);
 }
 
 .App {
