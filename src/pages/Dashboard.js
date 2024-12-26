@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import selectedCurrencyContext, { INTERVALS } from "../store/selectedCurrencyContext";
-import currencyListContext from "../store/currrencyListContext";
+import currencyListContext from "../store/currencyListContext";
 import LineChart from "../components/LineChart";
 import CurrencyTable from "../components/CurrencyTable";
 

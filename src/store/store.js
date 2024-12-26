@@ -1,5 +1,5 @@
 import { SelectedCurrencyProvider } from "./selectedCurrencyContext";
-import { CurrencyListProvider } from "./currrencyListContext";
+import { CurrencyListProvider } from "./currencyListContext";
 
 export default function Store(props) {
     return (
