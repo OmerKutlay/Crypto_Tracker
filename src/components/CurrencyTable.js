@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import currencyListContext from "../store/currrencyListContext";
+import currencyListContext from "../store/currencyListContext";
 import selectedCurrencyContext from "../store/selectedCurrencyContext";
 
 function CurrencyTable() {
