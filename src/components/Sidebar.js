@@ -6,7 +6,7 @@ export default class Sidebar extends Component {
     return (
       <aside className="sidebar">
         <div className="logo">
-          <h2>LOGO</h2>
+        <img src="/logo.png" alt="Crypto Tracker Logo" style={{ width: '100px' }} />
         </div>
         <Link to="/"><i className="fa-solid fa-server"></i>
           Dashboard
